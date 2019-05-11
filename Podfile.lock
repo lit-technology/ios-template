@@ -1,0 +1,67 @@
+PODS:
+  - BoringSSL (10.0.6):
+    - BoringSSL/Implementation (= 10.0.6)
+    - BoringSSL/Interface (= 10.0.6)
+  - BoringSSL-GRPC (0.0.3):
+    - BoringSSL-GRPC/Implementation (= 0.0.3)
+    - BoringSSL-GRPC/Interface (= 0.0.3)
+  - BoringSSL-GRPC/Implementation (0.0.3):
+    - BoringSSL-GRPC/Interface (= 0.0.3)
+  - BoringSSL-GRPC/Interface (0.0.3)
+  - BoringSSL/Implementation (10.0.6):
+    - BoringSSL/Interface (= 10.0.6)
+  - BoringSSL/Interface (10.0.6)
+  - gRPC-Core (1.19.0):
+    - gRPC-Core/Implementation (= 1.19.0)
+    - gRPC-Core/Interface (= 1.19.0)
+  - gRPC-Core/Implementation (1.19.0):
+    - BoringSSL-GRPC (= 0.0.3)
+    - gRPC-Core/Interface (= 1.19.0)
+    - nanopb (~> 0.3)
+  - gRPC-Core/Interface (1.19.0)
+  - nanopb (0.3.901):
+    - nanopb/decode (= 0.3.901)
+    - nanopb/encode (= 0.3.901)
+  - nanopb/decode (0.3.901)
+  - nanopb/encode (0.3.901)
+  - R.swift (5.0.0):
+    - R.swift.Library (~> 5.0.0)
+  - R.swift.Library (5.0.1)
+  - SwiftGRPC (0.9.0):
+    - BoringSSL (~> 10.0)
+    - gRPC-Core (~> 1.19.0)
+    - SwiftProtobuf (~> 1.5.0)
+  - SwiftLint (0.29.2)
+  - SwiftProtobuf (1.5.0)
+
+DEPENDENCIES:
+  - R.swift (= 5.0.0)
+  - SwiftGRPC
+  - SwiftLint (= 0.29.2)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - BoringSSL
+    - BoringSSL-GRPC
+    - gRPC-Core
+    - nanopb
+    - R.swift
+    - R.swift.Library
+    - SwiftGRPC
+    - SwiftLint
+    - SwiftProtobuf
+
+SPEC CHECKSUMS:
+  BoringSSL: e10f92a27043805c01071fe815a5cd98ae8212e7
+  BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
+  gRPC-Core: bd9472c8daa2e414b9f8038ba667bf56ce0e02b8
+  nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  R.swift: f88c7d7d48a2be4dffa132dde1b3d389620310eb
+  R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
+  SwiftGRPC: 25c008ae77c849ab292c138bfe4dbf57a9ad866e
+  SwiftLint: 47df60bdea6e7e902b193b6596db8683aafd86a3
+  SwiftProtobuf: 241400280f912735c1e1b9fe675fdd2c6c4d42e2
+
+PODFILE CHECKSUM: 05e15f9d03ca29e1f6974da55a05f1beec0c97e6
+
+COCOAPODS: 1.6.1

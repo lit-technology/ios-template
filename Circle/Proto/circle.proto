@@ -1,0 +1,159 @@
+syntax = "proto3";
+
+package circle;
+
+message LoginRequest {
+	string token = 1;
+}
+
+message LoginSuccess {
+	User user = 1;
+	string token = 2;
+}
+
+message SignUpRequest {
+	string token = 1;
+}
+
+message LatLng {
+	double lat = 1;
+	double lng = 2;
+}
+
+message LatLngBounds {
+	LatLng ne = 1;
+	LatLng sw = 2;
+}
+
+message MapRequest {
+	LatLngBounds bounds = 1;
+}
+
+message MapResponse {
+	repeated Circle circles = 2;
+}
+
+message Empty {}
+
+message ID {
+	int64 id = 1;
+}
+
+message IDs {
+	repeated int64 ids = 1;
+}
+
+message IDQuery {
+	int64 id = 1;
+	int32 offset = 2;
+}
+
+message StringID {
+	string id = 1;
+}
+
+message StringIDQuery {
+	string id = 1;
+	int32 offset = 2;
+}
+
+enum Gender {
+	NONE = 0;
+	FEMALE = 1;
+	MALE = 2;
+}
+
+message User {
+	int64 id = 1;
+	string name = 2;
+	string username = 3;
+	string bio = 4;
+	string photoURL = 5;
+	int64 posts = 6;
+	int64 followers = 7;
+	int64 following = 8;
+}
+
+message Users {
+	repeated User users = 1;
+}
+
+message UserProfile {
+
+}
+
+message UserProfileRequest {
+	bytes photo = 1;
+	string photoURL = 2;
+	string name = 3;
+	string username = 4;
+	string bio = 5;
+	Gender gender = 6;
+	int64 birthday = 7;
+}
+
+message UserProfileResponse {
+	string photoURL = 1;
+}
+
+message Place {
+	string name = 1;
+	string street = 2;
+	string city = 3;
+	string state = 4;
+	string country = 5;
+	enum Type {
+		PLACE = 0;
+		ADDRESS = 1;
+		CITY = 2;
+		STATE = 3;
+		COUNTRY = 4;
+	}
+	Type type = 6;
+	LatLng latLng = 7;
+}
+
+message Circle {
+	int64 id = 1;
+	int64 userID = 2;
+	string name = 3;
+	int64 cellID = 4;
+	string address = 5;
+	int64 startDate = 6;
+	int32 price = 7;
+}
+
+message Circles {
+	repeated Circle circles = 1;
+}
+
+message NewCircleRequest {
+	string name = 1;
+	repeated bytes photos = 2;
+	string bio = 3;
+	int64 startDate = 4;
+	int32 ageMin = 5;
+	int32 ageMax = 6;
+
+}
+
+message NewCircleResponse {
+	int64 id = 1;
+}
+
+service Light {
+	rpc Login(LoginRequest) returns (LoginSuccess);
+	rpc SignUp(SignUpRequest) returns (LoginSuccess);
+
+	rpc Map(MapRequest) returns (MapResponse);
+	rpc NewCircle(NewCircleRequest) returns (NewCircleResponse);
+	rpc GetCircle(ID) returns (Circle);
+	rpc GetCircles(IDs) returns (Circles);
+
+	rpc UserGet(ID) returns (User);
+	rpc UsersGet(IDs) returns (Users);
+
+	rpc CircleUsers(IDQuery) returns (Users);
+	rpc CircleJoin(ID) returns (Empty);
+	rpc CircleUnJoin(ID) returns (Empty);
+}
